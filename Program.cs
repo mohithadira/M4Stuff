@@ -10,6 +10,19 @@ using Microsoft.WindowsAzure.Storage.Table;
 
 namespace AzureTableStorage
 {
+    class GuestEntity: TableEntity
+    {
+        public string City { get; set; }
+        public string Contact { get; set; }
+
+        public GuestEntity() { }
+        public GuestEntity(string partitionKey, string rowKey)
+        {
+            this.PartitionKey = partitionKey;
+            this.RowKey = rowKey;
+        }
+    }
+    
     class Program
     {
         static CloudStorageAccount storageAccount;
